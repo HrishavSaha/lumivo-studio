@@ -1,6 +1,7 @@
 "use server";
 
 import type { FormState } from "@/lib/form-state";
+import { sendFormSubmission } from "@/lib/mailer";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -9,12 +10,6 @@ function read(data: FormData, key: string) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-/**
- * Contact form submission.
- *
- * TODO: swap the console.log for a real delivery mechanism (Resend, Supabase,
- * a CRM webhook). Nothing outside this function needs to change.
- */
 export async function submitContact(
   _prev: FormState,
   data: FormData,
@@ -35,7 +30,18 @@ export async function submitContact(
     return { ok: false, errors, values: payload };
   }
 
-  console.log("[contact]", payload);
+  try {
+    await sendFormSubmission({ type: "contact", ...payload });
+  } catch (error) {
+    console.error("[contact] failed to send email", error);
+    return {
+      ok: false,
+      errors: {
+        message: "Something went wrong sending your message. Please try again.",
+      },
+      values: payload,
+    };
+  }
 
   return {
     ok: true,
@@ -44,12 +50,6 @@ export async function submitContact(
   };
 }
 
-/**
- * Booking form submission.
- *
- * TODO: swap the console.log for a real calendar integration (Cal.com,
- * Calendly, Google Calendar) and validate the slot is still free.
- */
 export async function submitBooking(
   _prev: FormState,
   data: FormData,
@@ -74,7 +74,18 @@ export async function submitBooking(
     return { ok: false, errors, values: payload };
   }
 
-  console.log("[booking]", payload);
+  try {
+    await sendFormSubmission({ type: "booking", ...payload });
+  } catch (error) {
+    console.error("[booking] failed to send email", error);
+    return {
+      ok: false,
+      errors: {
+        date: "Something went wrong confirming your booking. Please try again.",
+      },
+      values: payload,
+    };
+  }
 
   return {
     ok: true,
