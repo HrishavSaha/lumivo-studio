@@ -3,9 +3,9 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 export const buttonVariants = {
-  /** Square orange block with a serif label — the primary CTA. */
+  /** Orange capsule, bold uppercase sans — the primary CTA. */
   solid:
-    "bg-brand text-cream font-display text-base sm:text-lg px-7 py-2.5 hover:bg-ink",
+    "bg-brand text-cream rounded-full px-7 py-3 text-xs font-bold uppercase tracking-[0.1em] hover:bg-ink sm:text-sm",
   /** Charcoal capsule, small uppercase sans — "SEE OUR WORK". */
   pillDark:
     "bg-charcoal text-cream rounded-full px-6 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] hover:bg-brand",

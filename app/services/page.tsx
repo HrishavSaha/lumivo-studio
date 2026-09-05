@@ -44,13 +44,13 @@ export default function ServicesPage() {
       </section>
 
       <Section tone="cream" className="pt-0">
-        <Container>
-          <div className="divide-y divide-ink/10">
-            {services.map((service) => (
-              <ServiceBlock key={service.slug} service={service} />
-            ))}
-          </div>
+        <div className="divide-y divide-ink/10">
+          {services.map((service) => (
+            <ServiceBlock key={service.slug} service={service} />
+          ))}
+        </div>
 
+        <Container>
           <Reveal>
             <div className="mt-12 text-center">
               <Link

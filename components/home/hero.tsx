@@ -23,7 +23,7 @@ export function HomeHero() {
 
         <Reveal delay={220}>
           <ButtonLink href="/book" className="mt-10">
-            Book a FREE call
+            Book a <em>FREE</em> call
           </ButtonLink>
         </Reveal>
       </Container>
