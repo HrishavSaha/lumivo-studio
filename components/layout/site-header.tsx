@@ -51,12 +51,18 @@ export function SiteHeader() {
               href={link.href}
               aria-current={isActive(link.href) ? "page" : undefined}
               className={cn(
-                "text-xs font-semibold uppercase tracking-[0.14em] transition-opacity",
-                "underline-offset-8 hover:underline",
-                isActive(link.href) ? "underline opacity-100" : "opacity-85",
+                "relative py-1 text-xs font-semibold uppercase tracking-[0.14em] transition-opacity hover:opacity-100",
+                isActive(link.href) ? "opacity-100" : "opacity-85",
               )}
             >
               {link.label}
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-cream transition-opacity",
+                  isActive(link.href) ? "opacity-100" : "opacity-0",
+                )}
+              />
             </Link>
           ))}
         </nav>

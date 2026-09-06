@@ -61,9 +61,9 @@ export function ExtraServicesAccordion() {
                     {service.description}
                     <Link
                       href={`#${service.slug}`}
-                      className="mt-3 block font-semibold uppercase tracking-[0.12em] text-brand-warm underline underline-offset-4"
+                      className="mt-3 inline-flex items-center gap-1.5 font-semibold uppercase tracking-[0.12em] text-brand-warm transition-colors hover:text-cream"
                     >
-                      Read more ↓
+                      Read more <span aria-hidden="true">↓</span>
                     </Link>
                   </div>
                 </div>

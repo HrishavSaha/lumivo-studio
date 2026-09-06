@@ -73,6 +73,7 @@ html {
 
 .snap-track > * {
   scroll-snap-align: center;
+  scroll-snap-stop: always;
   flex: 0 0 auto;
 }
 

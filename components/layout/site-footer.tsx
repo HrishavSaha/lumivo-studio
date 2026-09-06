@@ -99,7 +99,10 @@ export function SiteFooter() {
       <div className="border-t border-ink/10">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-5 text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
           <p>© {new Date().getFullYear()} Lumivo Studio. All rights reserved.</p>
-          <Link href="/book" className="font-medium underline underline-offset-4">
+          <Link
+            href="/book"
+            className="font-medium text-ink transition-colors hover:text-brand"
+          >
             Book a free call
           </Link>
         </div>

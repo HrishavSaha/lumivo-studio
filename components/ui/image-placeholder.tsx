@@ -1,27 +1,27 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /**
- * Stand-in for a real image.
- *
- * Every call site already passes the final `src` and a written `alt`, so
- * turning the whole site's imagery on is a single edit: drop the assets into
- * `public/images/`, then uncomment the <Image> block below (and the `next/image`
- * import) and delete the placeholder markup underneath it.
- *
- *   // import Image from "next/image";
- *   //
- *   // <Image
- *   //   src={`/images/${src}.jpg`}
- *   //   alt={alt}
- *   //   fill
- *   //   sizes="(max-width: 768px) 100vw, 50vw"
- *   //   className="object-cover"
- *   // />
+ * Basenames that have a real asset in `public/images/`. Everything else
+ * still falls back to the placeholder swatch below.
  *
  * Note for Next 16: use `preload` (not the deprecated `priority`) on the
  * above-the-fold hero images, and add any non-75 values to `images.qualities`
  * in next.config.ts.
  */
+const AVAILABLE_IMAGES = new Set([
+  "service-social-media",
+  "service-content-creation",
+  "service-branding",
+  "work-arabella-branding",
+  "work-arabella-signage",
+  "work-amore-archives",
+  "work-le-chan-tea",
+  "work-nami-beauty",
+  "work-rumus-studio",
+  "work-waniraos",
+]);
+
 export function ImagePlaceholder({
   src,
   alt,
@@ -46,6 +46,23 @@ export function ImagePlaceholder({
     full: "rounded-full",
   }[rounded];
 
+  if (AVAILABLE_IMAGES.has(src)) {
+    return (
+      <div
+        style={{ aspectRatio: ratio }}
+        className={cn("relative w-full overflow-hidden", radius, className)}
+      >
+        <Image
+          src={`/images/${src}.png`}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       role="img"
@@ -59,7 +76,6 @@ export function ImagePlaceholder({
         className,
       )}
     >
-      {/* <Image src={`/images/${src}.jpg`} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /> */}
       <span className="pointer-events-none select-none px-4 text-center font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-[#6b6055]">
         {src}
       </span>

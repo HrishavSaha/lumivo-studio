@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container, Section } from "@/components/ui/container";
+import { ButtonLink } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Reveal } from "@/components/ui/reveal";
 import { ServiceBlock } from "@/components/services/service-block";
@@ -53,12 +53,9 @@ export default function ServicesPage() {
         <Container>
           <Reveal>
             <div className="mt-12 text-center">
-              <Link
-                href="/services/extra"
-                className="font-display text-2xl underline decoration-1 underline-offset-8 transition-colors hover:text-brand sm:text-3xl"
-              >
-                Extra Services
-              </Link>
+              <ButtonLink variant="pillDark" href="/services/extra">
+                Extra Services <span aria-hidden="true">↗</span>
+              </ButtonLink>
             </div>
           </Reveal>
         </Container>

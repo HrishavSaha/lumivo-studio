@@ -238,11 +238,25 @@ export const workCategories: WorkCategory[] = [
         alt: "Yana Monoi product set with pink packaging and mug",
       },
       {
-        // TODO: real client name.
-        label: "Client's name",
-        description: LOREM,
-        image: "work-branding-03",
-        alt: "Acrylic review stand with a QR code on a salon counter",
+        label: "Amore Archives",
+        description:
+          "Amore Archives is a content-creation crew — camera-ready branding, ID cards, and lanyards built for their on-the-ground team.",
+        image: "work-amore-archives",
+        alt: "Amore Archives crew lanyard and ID badges",
+      },
+      {
+        label: "Le Chan Tea",
+        description:
+          "Le Chan Tea is a floral, botanical tea brand with packaging designed to feel like a bouquet in a cup.",
+        image: "work-le-chan-tea",
+        alt: "Le Chan Tea branded cup with a floral illustration",
+      },
+      {
+        label: "Arabella",
+        description:
+          "Arabella's flagship space brings the brand's soft, romantic identity to life — from signage to in-store lighting.",
+        image: "work-arabella-signage",
+        alt: "Arabella butterfly emblem lit up in a boutique hallway",
       },
     ],
   },
@@ -277,24 +291,25 @@ export const workCategories: WorkCategory[] = [
     tone: "cream",
     cards: [
       {
-        label: "Arabella",
-        description: LOREM,
-        image: "work-arabella-social",
-        alt: "Arabella social media content grid",
+        label: "Nami Beauty Academy",
+        description:
+          "Nami Beauty Academy is a makeup and hairstyling academy in Surabaya — we run a content calendar mixing class promos, beauty tips, and student results.",
+        image: "work-nami-beauty",
+        alt: "Nami Beauty Academy social media content grid",
       },
       {
-        // TODO: real client name.
-        label: "Client's name",
-        description: LOREM,
-        image: "work-social-02",
-        alt: "Styled product photography used for social posts",
+        label: "Rumus Studio",
+        description:
+          "Rumus Studio is a music school — our social content covers class promos, gear tips, and the science of learning an instrument.",
+        image: "work-rumus-studio",
+        alt: "Rumus Studio social media content grid",
       },
       {
-        // TODO: real client name.
-        label: "Client's name",
-        description: LOREM,
-        image: "work-social-03",
-        alt: "In-store review stand photographed for social content",
+        label: "Waniraos",
+        description:
+          "Waniraos is a Japanese bento delivery brand — we shoot the food photography and promotional posts that keep the menu top of feed.",
+        image: "work-waniraos",
+        alt: "Waniraos Japanese bento promotional post",
       },
     ],
   },
